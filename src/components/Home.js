@@ -58,7 +58,10 @@ const Home = () => {
 
       } else {
 
+        setLoading(true);
         ApiCall();
+        setLoading(false);
+
       }
   
     }, [debouncedSearchTerm]);
@@ -87,17 +90,19 @@ const Home = () => {
     return (
       <>
   
-        <div style={styles.searchBox}>
-          <input autoFocus
-            value={searchTerm}
-            onChange={(e) => {
-              setSearchTerm(e.target.value);
-            }}
-          />
-  
-          <p>Searched for - {debouncedSearchTerm}, found {movieCount} movies</p>
+          <div style={styles.searchBox}>
+            <input autoFocus
+              value={searchTerm}
+              onChange={(e) => {
+                setSearchTerm(e.target.value);
+              }}
+            />
+    
+            <p>Searched for - {debouncedSearchTerm}, found {movieCount} movies</p>
   
           </div>
+
+          { loading === true ? <Loading/> : '' }
   
           <div style={styles.gridContainer}>
           {

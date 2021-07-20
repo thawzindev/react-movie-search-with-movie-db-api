@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
+import "../Loading.css";
 
 const Loading = ({isLoading}) => {
+
+    
+    console.log(isLoading)
     
     return (
-        <div>
-            { isLoading === true ? <h1>LOADING ... </h1> : '' }
-        </div>
+        
+        <div className="loader"></div>
+        
         
     )
 }
