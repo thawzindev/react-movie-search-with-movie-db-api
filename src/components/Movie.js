@@ -1,5 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import {
+    BrowserRouter as Router,
+    Route,
+    Link,
+    withRouter
+  } from "react-router-dom";
 
 const Movie = (props) => {
 
@@ -16,8 +22,9 @@ const Movie = (props) => {
     
     return (
         <div style={styles.card}>
-                <img src={`https://image.tmdb.org/t/p/w300${props.movie.poster_path}`} alt="Poster Image"/>
-               
+                <Link to={`/movie/${props.movie.id}`}>
+                    <img src={`https://image.tmdb.org/t/p/w300${props.movie.poster_path}`} alt="Poster Image"/>
+                </Link>
                     <h4><b>{props.movie.original_title}</b></h4> 
                
              
